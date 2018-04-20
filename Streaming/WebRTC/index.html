@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Chat</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<video id="remoteVideo" width="40%" autoplay controls></video>
+<video id="localVideo" width="40%" autoplay controls muted></video>
+<input id="videoCallButton" type="button" disabled value="Video Call"/>
+<input id="endCallButton" type="button" disabled value="End Call"/>
+
+<script src="client.js"></script>
+
+</body>
+</html>

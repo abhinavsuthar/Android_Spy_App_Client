@@ -1,0 +1,61 @@
+
+#frame {
+    height: 100%;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+}
+
+#menu {
+    height: 150px;
+    overflow: auto;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+}
+
+#button-grp{
+    max-width: 800px;
+    margin: 10px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#data {
+    margin: 20px auto;
+    height: 500px;
+    align-content: center;
+    overflow: auto;
+    background: #fff;
+}
+
+#img {
+    margin: 5px auto;
+}
+
+.btn-group button {
+    background-color: #607D8B; /* Background */
+    border: 1px solid #212121; /* Border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #455A64;
+}

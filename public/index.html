@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="frame">
+    <div id="menu" class="btn-group">
+        <div id="button-grp">
+            <button id="getImages" style="width: 20%">Images</button>
+            <button id="getContacts" style="width: 20%">Contacts</button>
+            <button id="getMessages" style="width: 20%">Messages</button>
+            <button id="getLocation" style="width: 20%">Location</button>
+            <button id="getCallHistory" style="width: 20%">Call History</button>
+        </div>
+        <div id="notification" style="width: 100%"></div>
+    </div>
+    <div id="data" ></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

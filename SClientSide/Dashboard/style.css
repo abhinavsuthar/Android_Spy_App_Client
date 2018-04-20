@@ -1,0 +1,88 @@
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.text-danger {
+    color: #a94442
+}
+
+.text-success {
+    color: #4cae4c;
+}
+
+a {
+    color: #2f96b4;
+    text-decoration: none;
+}
+
+table {
+    background-color: transparent
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: left;
+    color: #101010;
+}
+
+td {
+    text-align: left;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd
+}
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 0 solid #ddd
+}
+
+.table > tbody + tbody {
+    border-top: 2px solid #ddd
+}
+
+.table > caption + thead > tr:first-child > td, .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table > thead:first-child > tr:first-child > th {
+    border-top: 0
+}
+
+#mainFrame {
+    position: relative;
+}
+
+.overlapDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#images, #messages, #callLog, #contacts #download {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.activeBtn {
+    background-color: #030303;
+}
+
+.center-crop {
+    object-fit: cover;
+}
